@@ -13,9 +13,9 @@ class ScopeInlineFormset(BaseInlineFormSet):
                 if form.cleaned_data['is_main'] is True:
                     i += 1
                 if i > 1:
-                    raise ValidationError('Можно указать не более одного основного раздела')
+                    raise ValidationError('Основным может быть только один раздел')
         if i == 0:
-            raise ValidationError('Должен быть выбран основной раздел')
+            raise ValidationError('Укажите оснвоной раздел')
         return super().clean()  # вызываем базовый код переопределяемого метода
 
 
